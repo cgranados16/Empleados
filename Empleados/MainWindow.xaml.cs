@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Empleados.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,13 +27,61 @@ namespace Empleados
         public MainWindow()
         {
             InitializeComponent();
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+            {
+                DataSource = "tarea03.database.windows.net",
+                UserID = "Carlos",
+                Password = "Caca1234",
+                InitialCatalog = "Tarea3"
+            };
 
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public ObservableCollection<Empleado> GetEmpleados(string connectionString)
         {
+            const string GetProductsQuery = "SELECT * FROM HumanResources.Employee;";
 
+            var products = new ObservableCollection<Empleado>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.CommandText = GetProductsQuery;
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    var product = new Empleado();
+                                    product.Cedula = reader.GetInt32(0);
+                                    product.Nombre = reader.GetString(1);
+                                    product.PrimerApellido = reader.GetString(2);
+                                    product.SegundoApellido = reader.GetString(3);
+                                    product.PuestoTrabajo = reader.GetString(4);
+                                    product.FechaContratacion = reader.GetDateTime(5);
+                                    product.Genero = reader.GetString(6);
+                                    product.Nacionalidad = reader.GetString(7);
+                                    product.EstadoCivil = reader.GetString(7);
+                                    products.Add(product);
+                                }
+                            }
+                        }
+                    }
+                }
+                return products;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            return null;
         }
+
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -46,6 +97,17 @@ namespace Empleados
             tarea3DataSetView_EmpleadoTableAdapter.Fill(tarea3DataSet.View_Empleado);
             System.Windows.Data.CollectionViewSource view_EmpleadoViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("view_EmpleadoViewSource")));
             view_EmpleadoViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void view_EmpleadoDataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EmpleadoDetalle frm1 = new EmpleadoDetalle();
+            frm1.Show();
         }
     }
 }

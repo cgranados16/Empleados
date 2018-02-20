@@ -5,82 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Empleados"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1366" Loaded="Window_Loaded">
+        Title="MainWindow" Height="720" Width="977.5" Loaded="Window_Loaded">
     <Window.Resources>
         <local:Tarea3DataSet x:Key="tarea3DataSet"/>
         <CollectionViewSource x:Key="empleadoViewSource" Source="{Binding Empleado, Source={StaticResource tarea3DataSet}}"/>
         <CollectionViewSource x:Key="view_EmpleadoViewSource" Source="{Binding View_Empleado, Source={StaticResource tarea3DataSet}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource empleadoViewSource}">
-        <Label Content="Empleados" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.675,0.298"/>
-        <ListView x:Name="view_EmpleadoListView" ItemsSource="{Binding Source={StaticResource view_EmpleadoViewSource}}" Margin="36,91,43,62" SelectionMode="Single">
-            <ListView.ItemContainerStyle>
-                <Style>
-                    <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
-                    <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn x:Name="cédulaColumn" Header="Cédula" Width="80">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Margin="6,-1,-6,-1" Text="{Binding Cédula, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="nombreColumn" Header="Nombre" Width="80">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Margin="-6,-1" Text="{Binding Nombre, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="primer_ApellidoColumn" Header="Primer Apellido" Width="80">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Margin="-6,-1" Text="{Binding Primer Apellido, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="segundo_ApellidoColumn" Header="Segundo Apellido" Width="80">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Margin="-6,-1" Text="{Binding Segundo Apellido, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="fecha_de_ContrataciónColumn" Header="Fecha de Contratación" Width="80">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <DatePicker Margin="-6,-1" SelectedDate="{Binding Fecha de Contratación, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="géneroColumn" Header="Género" Width="80">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Margin="-6,-1" Text="{Binding Género, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="nacionalidadColumn" Header="Nacionalidad" Width="80">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Margin="-6,-1" Text="{Binding Nacionalidad, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="estado_CivilColumn" Header="Estado Civil" Width="80">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Margin="-6,-1" Text="{Binding Estado Civil, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Label Content="Empleados" HorizontalAlignment="Left" Margin="24,24,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.675,0.298"/>
+        <DataGrid x:Name="view_EmpleadoDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource view_EmpleadoViewSource}}" Margin="24,111,24,103" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="view_EmpleadoDataGrid_SelectionChanged_1" IsReadOnly="True" RowHeight="50" IsTextSearchEnabled="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="cédulaColumn" Binding="{Binding Cédula}" Header="Cédula" Width="80"/>
+                <DataGridTextColumn x:Name="nombreColumn" Binding="{Binding Nombre}" Header="Nombre" Width="80"/>
+                <DataGridTextColumn x:Name="primer_ApellidoColumn" Binding="{Binding Primer Apellido}" Header="Primer Apellido" Width="120"/>
+                <DataGridTextColumn x:Name="segundo_ApellidoColumn" Binding="{Binding Segundo Apellido}" Header="Segundo Apellido" Width="120"/>
+                <DataGridTextColumn x:Name="puesto_de_TrabajoColumn" Binding="{Binding Puesto de Trabajo}" Header="Puesto de Trabajo" Width="140"/>
+                <DataGridTemplateColumn x:Name="fecha_de_ContrataciónColumn" Header="Fecha de Contratación" Width="140">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Fecha de Contratación, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Focusable="False"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="géneroColumn" Binding="{Binding Género}" Header="Género" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="nacionalidadColumn" Binding="{Binding Nacionalidad}" Header="Nacionalidad" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="estado_CivilColumn" Binding="{Binding Estado Civil}" Header="Estado Civil" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Ver Detalles" HorizontalAlignment="Left" Margin="722,611,0,0" VerticalAlignment="Top" Width="224" Height="53" Click="Button_Click" FontSize="20"/>
 
     </Grid>
 </Window>

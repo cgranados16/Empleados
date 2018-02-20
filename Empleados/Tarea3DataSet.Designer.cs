@@ -3009,6 +3009,8 @@ namespace Empleados {
             
             private global::System.Data.DataColumn columnSegundo_Apellido;
             
+            private global::System.Data.DataColumn columnPuesto_de_Trabajo;
+            
             private global::System.Data.DataColumn columnFecha_de_Contratación;
             
             private global::System.Data.DataColumn columnGénero;
@@ -3084,6 +3086,14 @@ namespace Empleados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Puesto_de_TrabajoColumn {
+                get {
+                    return this.columnPuesto_de_Trabajo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn Fecha_de_ContrataciónColumn {
                 get {
                     return this.columnFecha_de_Contratación;
@@ -3151,13 +3161,14 @@ namespace Empleados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public View_EmpleadoRow AddView_EmpleadoRow(int Cédula, string Nombre, string Primer_Apellido, string Segundo_Apellido, System.DateTime Fecha_de_Contratación, string Género, string Nacionalidad, string Estado_Civil) {
+            public View_EmpleadoRow AddView_EmpleadoRow(int Cédula, string Nombre, string Primer_Apellido, string Segundo_Apellido, string Puesto_de_Trabajo, System.DateTime Fecha_de_Contratación, string Género, string Nacionalidad, string Estado_Civil) {
                 View_EmpleadoRow rowView_EmpleadoRow = ((View_EmpleadoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Cédula,
                         Nombre,
                         Primer_Apellido,
                         Segundo_Apellido,
+                        Puesto_de_Trabajo,
                         Fecha_de_Contratación,
                         Género,
                         Nacionalidad,
@@ -3195,6 +3206,7 @@ namespace Empleados {
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnPrimer_Apellido = base.Columns["Primer Apellido"];
                 this.columnSegundo_Apellido = base.Columns["Segundo Apellido"];
+                this.columnPuesto_de_Trabajo = base.Columns["Puesto de Trabajo"];
                 this.columnFecha_de_Contratación = base.Columns["Fecha de Contratación"];
                 this.columnGénero = base.Columns["Género"];
                 this.columnNacionalidad = base.Columns["Nacionalidad"];
@@ -3212,6 +3224,8 @@ namespace Empleados {
                 base.Columns.Add(this.columnPrimer_Apellido);
                 this.columnSegundo_Apellido = new global::System.Data.DataColumn("Segundo Apellido", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSegundo_Apellido);
+                this.columnPuesto_de_Trabajo = new global::System.Data.DataColumn("Puesto de Trabajo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPuesto_de_Trabajo);
                 this.columnFecha_de_Contratación = new global::System.Data.DataColumn("Fecha de Contratación", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha_de_Contratación);
                 this.columnGénero = new global::System.Data.DataColumn("Género", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3227,6 +3241,7 @@ namespace Empleados {
                 this.columnNombre.MaxLength = 255;
                 this.columnPrimer_Apellido.MaxLength = 255;
                 this.columnSegundo_Apellido.MaxLength = 255;
+                this.columnPuesto_de_Trabajo.MaxLength = 255;
                 this.columnGénero.MaxLength = 255;
                 this.columnNacionalidad.MaxLength = 255;
                 this.columnEstado_Civil.MaxLength = 255;
@@ -4194,6 +4209,22 @@ namespace Empleados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Puesto_de_Trabajo {
+                get {
+                    try {
+                        return ((string)(this[this.tableView_Empleado.Puesto_de_TrabajoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Puesto de Trabajo\' in table \'View_Empleado\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableView_Empleado.Puesto_de_TrabajoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public System.DateTime Fecha_de_Contratación {
                 get {
                     try {
@@ -4290,6 +4321,18 @@ namespace Empleados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetSegundo_ApellidoNull() {
                 this[this.tableView_Empleado.Segundo_ApellidoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPuesto_de_TrabajoNull() {
+                return this.IsNull(this.tableView_Empleado.Puesto_de_TrabajoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPuesto_de_TrabajoNull() {
+                this[this.tableView_Empleado.Puesto_de_TrabajoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7601,6 +7644,7 @@ SELECT IdPersona, Telefono FROM Telefonos WHERE (IdPersona = @IdPersona) AND (Te
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
             tableMapping.ColumnMappings.Add("Primer Apellido", "Primer Apellido");
             tableMapping.ColumnMappings.Add("Segundo Apellido", "Segundo Apellido");
+            tableMapping.ColumnMappings.Add("Puesto de Trabajo", "Puesto de Trabajo");
             tableMapping.ColumnMappings.Add("Fecha de Contratación", "Fecha de Contratación");
             tableMapping.ColumnMappings.Add("Género", "Género");
             tableMapping.ColumnMappings.Add("Nacionalidad", "Nacionalidad");
@@ -7621,8 +7665,9 @@ SELECT IdPersona, Telefono FROM Telefonos WHERE (IdPersona = @IdPersona) AND (Te
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Cédula, Nombre, [Primer Apellido], [Segundo Apellido], [Fecha de Contratac" +
-                "ión], Género, Nacionalidad, [Estado Civil] FROM dbo.View_Empleado";
+            this._commandCollection[0].CommandText = "SELECT Cédula, Nombre, [Primer Apellido], [Segundo Apellido], [Puesto de Trabajo]" +
+                ", [Fecha de Contratación], Género, Nacionalidad, [Estado Civil] FROM dbo.View_Em" +
+                "pleado";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
