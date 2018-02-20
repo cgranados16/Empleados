@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Tarea3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Correos">
+    <Key>
+      <PropertyRef Name="IdPersona" />
+      <PropertyRef Name="Correo" />
+    </Key>
+    <Property Name="IdPersona" Type="int" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdEmpleado" Type="int" Nullable="false" />
+    <Property Name="PuestoTrabajo" Type="varchar" MaxLength="255" />
+    <Property Name="FechaContratacion" Type="date" />
+    <Property Name="Salario" Type="int" />
+  </EntityType>
+  <EntityType Name="Familiares">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+      <PropertyRef Name="IdFamiliar" />
+      <PropertyRef Name="Relacion" />
+    </Key>
+    <Property Name="IdEmpleado" Type="int" Nullable="false" />
+    <Property Name="IdFamiliar" Type="int" Nullable="false" />
+    <Property Name="Relacion" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistorialVacaciones">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+      <PropertyRef Name="FechaInicio" />
+      <PropertyRef Name="FechaFinal" />
+    </Key>
+    <Property Name="IdEmpleado" Type="int" Nullable="false" />
+    <Property Name="FechaInicio" Type="date" Nullable="false" />
+    <Property Name="FechaFinal" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PagosRealizados">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+      <PropertyRef Name="Monto" />
+      <PropertyRef Name="Fecha" />
+    </Key>
+    <Property Name="IdEmpleado" Type="int" Nullable="false" />
+    <Property Name="Monto" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+      <PropertyRef Name="Permiso" />
+    </Key>
+    <Property Name="IdEmpleado" Type="int" Nullable="false" />
+    <Property Name="Permiso" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="IdPersona" />
+    </Key>
+    <Property Name="IdPersona" Type="int" Nullable="false" />
+    <Property Name="Apellido1" Type="varchar" MaxLength="255" />
+    <Property Name="Apellido2" Type="varchar" MaxLength="255" />
+    <Property Name="Direccion" Type="varchar" MaxLength="255" />
+    <Property Name="FechaNacimiento" Type="varchar" MaxLength="255" />
+    <Property Name="Genero" Type="varchar" MaxLength="255" />
+    <Property Name="Nacionalidad" Type="varchar" MaxLength="255" />
+    <Property Name="EstadoCivil" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Telefonos">
+    <Key>
+      <PropertyRef Name="IdPersona" />
+      <PropertyRef Name="Telefono" />
+    </Key>
+    <Property Name="IdPersona" Type="int" Nullable="false" />
+    <Property Name="Telefono" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Correos__IdPerso__5AEE82B9">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Correos" Type="Self.Correos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="IdPersona" />
+      </Principal>
+      <Dependent Role="Correos">
+        <PropertyRef Name="IdPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleado__IdEmpl__5DCAEF64">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="IdPersona" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Familiare__IdEmp__693CA210">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Familiares" Type="Self.Familiares" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="Familiares">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Familiare__IdFam__6A30C649">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Familiares" Type="Self.Familiares" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="IdPersona" />
+      </Principal>
+      <Dependent Role="Familiares">
+        <PropertyRef Name="IdFamiliar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Historial__IdEmp__60A75C0F">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="HistorialVacaciones" Type="Self.HistorialVacaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="HistorialVacaciones">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PagosReal__IdEmp__6383C8BA">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="PagosRealizados" Type="Self.PagosRealizados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="PagosRealizados">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Permisos__IdEmpl__66603565">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Permisos" Type="Self.Permisos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="Permisos">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Telefonos__IdPer__5812160E">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="IdPersona" />
+      </Principal>
+      <Dependent Role="Telefonos">
+        <PropertyRef Name="IdPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Tarea3ModelStoreContainer">
+    <EntitySet Name="Correos" EntityType="Self.Correos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Familiares" EntityType="Self.Familiares" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistorialVacaciones" EntityType="Self.HistorialVacaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PagosRealizados" EntityType="Self.PagosRealizados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Correos__IdPerso__5AEE82B9" Association="Self.FK__Correos__IdPerso__5AEE82B9">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Correos" EntitySet="Correos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleado__IdEmpl__5DCAEF64" Association="Self.FK__Empleado__IdEmpl__5DCAEF64">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Familiare__IdEmp__693CA210" Association="Self.FK__Familiare__IdEmp__693CA210">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Familiares" EntitySet="Familiares" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Familiare__IdFam__6A30C649" Association="Self.FK__Familiare__IdFam__6A30C649">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Familiares" EntitySet="Familiares" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Historial__IdEmp__60A75C0F" Association="Self.FK__Historial__IdEmp__60A75C0F">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="HistorialVacaciones" EntitySet="HistorialVacaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PagosReal__IdEmp__6383C8BA" Association="Self.FK__PagosReal__IdEmp__6383C8BA">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="PagosRealizados" EntitySet="PagosRealizados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Permisos__IdEmpl__66603565" Association="Self.FK__Permisos__IdEmpl__66603565">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Permisos" EntitySet="Permisos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Telefonos__IdPer__5812160E" Association="Self.FK__Telefonos__IdPer__5812160E">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Telefonos" EntitySet="Telefonos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
