@@ -40,3 +40,4 @@ D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\Empleados.exe
 D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\Empleados.pdb
 D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\EmpleadoDetalle.g.cs
 D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\EmpleadoDetalle.baml
+D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\Empleados_Content.g.cs

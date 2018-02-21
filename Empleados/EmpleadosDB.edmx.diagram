@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b166443c66aa406d91872c39ed3b5444" Name="Diagram1">
+        <EntityTypeShape EntityType="EmpleadosModel.Correos" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpleadosModel.Empleado" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpleadosModel.Familiares" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpleadosModel.HistorialVacaciones" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpleadosModel.PagosRealizados" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpleadosModel.Permisos" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpleadosModel.Persona" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpleadosModel.Telefonos" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpleadosModel.View_Empleado" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="EmpleadosModel.FK__Correos__IdPerso__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpleadosModel.FK__Empleado__IdEmpl__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpleadosModel.FK__Familiare__IdEmp__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpleadosModel.FK__Historial__IdEmp__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpleadosModel.FK__PagosReal__IdEmp__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpleadosModel.FK__Permisos__IdEmpl__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpleadosModel.FK__Familiare__IdFam__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpleadosModel.FK__Telefonos__IdPer__5812160E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

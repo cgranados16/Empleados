@@ -1,38 +1,11 @@
 ﻿<Window x:Class="Empleados.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Empleados"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="977.5" Loaded="Window_Loaded">
-    <Window.Resources>
-        <local:Tarea3DataSet x:Key="tarea3DataSet"/>
-        <CollectionViewSource x:Key="empleadoViewSource" Source="{Binding Empleado, Source={StaticResource tarea3DataSet}}"/>
-        <CollectionViewSource x:Key="view_EmpleadoViewSource" Source="{Binding View_Empleado, Source={StaticResource tarea3DataSet}}"/>
-    </Window.Resources>
-    <Grid DataContext="{StaticResource empleadoViewSource}">
+        Title="MainWindow" Height="720" Width="977.5"
+        Loaded="Window_Loaded">
+    <Grid>
         <Label Content="Empleados" HorizontalAlignment="Left" Margin="24,24,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.675,0.298"/>
-        <DataGrid x:Name="view_EmpleadoDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource view_EmpleadoViewSource}}" Margin="24,111,24,103" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="view_EmpleadoDataGrid_SelectionChanged_1" IsReadOnly="True" RowHeight="50" IsTextSearchEnabled="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="cédulaColumn" Binding="{Binding Cédula}" Header="Cédula" Width="80"/>
-                <DataGridTextColumn x:Name="nombreColumn" Binding="{Binding Nombre}" Header="Nombre" Width="80"/>
-                <DataGridTextColumn x:Name="primer_ApellidoColumn" Binding="{Binding Primer Apellido}" Header="Primer Apellido" Width="120"/>
-                <DataGridTextColumn x:Name="segundo_ApellidoColumn" Binding="{Binding Segundo Apellido}" Header="Segundo Apellido" Width="120"/>
-                <DataGridTextColumn x:Name="puesto_de_TrabajoColumn" Binding="{Binding Puesto de Trabajo}" Header="Puesto de Trabajo" Width="140"/>
-                <DataGridTemplateColumn x:Name="fecha_de_ContrataciónColumn" Header="Fecha de Contratación" Width="140">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding Fecha de Contratación, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Focusable="False"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn x:Name="géneroColumn" Binding="{Binding Género}" Header="Género" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="nacionalidadColumn" Binding="{Binding Nacionalidad}" Header="Nacionalidad" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="estado_CivilColumn" Binding="{Binding Estado Civil}" Header="Estado Civil" Width="SizeToHeader"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <DataGrid Name="dataGrid1" Margin="34,93,71,133" IsReadOnly="True" RowHeight="50" IsTextSearchEnabled="True"/>
         <Button Content="Ver Detalles" HorizontalAlignment="Left" Margin="722,611,0,0" VerticalAlignment="Top" Width="224" Height="53" Click="Button_Click" FontSize="20"/>
-
     </Grid>
 </Window>

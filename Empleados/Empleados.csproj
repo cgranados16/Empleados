@@ -63,10 +63,46 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Correos.cs">
+      <DependentUpon>EmpleadosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado.cs">
+      <DependentUpon>EmpleadosDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="EmpleadoDetalle.xaml.cs">
       <DependentUpon>EmpleadoDetalle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EmpleadosDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpleadosDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpleadosDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpleadosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpleadosDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpleadosDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Familiares.cs">
+      <DependentUpon>EmpleadosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialVacaciones.cs">
+      <DependentUpon>EmpleadosDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Empleado.cs" />
+    <Compile Include="PagosRealizados.cs">
+      <DependentUpon>EmpleadosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos.cs">
+      <DependentUpon>EmpleadosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persona.cs">
+      <DependentUpon>EmpleadosDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tarea3DataSet.cs">
       <DependentUpon>Tarea3DataSet.xsd</DependentUpon>
     </Compile>
@@ -74,6 +110,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Tarea3DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Telefonos.cs">
+      <DependentUpon>EmpleadosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Empleado.cs">
+      <DependentUpon>EmpleadosDB.tt</DependentUpon>
     </Compile>
     <Page Include="EmpleadoDetalle.xaml">
       <SubType>Designer</SubType>
@@ -110,6 +152,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="EmpleadosDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmpleadosDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EmpleadosDB.edmx.diagram">
+      <DependentUpon>EmpleadosDB.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -132,6 +181,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EmpleadosDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmpleadosDB.edmx</DependentUpon>
+      <LastGenOutput>EmpleadosDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EmpleadosDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmpleadosDB.edmx</DependentUpon>
+      <LastGenOutput>EmpleadosDB.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
