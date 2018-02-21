@@ -19,14 +19,15 @@ namespace Empleados
     /// </summary>
     public partial class EmpleadoDetalle : Window
     {
-        public EmpleadoDetalle()
-        {
+        public int EmpleadoID { get; set; }
+
+
+        public EmpleadoDetalle(){
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
+            empleadoTextBox.Text = EmpleadoID.ToString();
         }
     }
 }
