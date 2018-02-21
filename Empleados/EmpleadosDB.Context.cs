@@ -15,10 +15,10 @@ namespace Empleados
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class EmpleadosEntity : DbContext
+    public partial class EmpleadosEntities : DbContext
     {
-        public EmpleadosEntity()
-            : base("name=EmpleadosEntity")
+        public EmpleadosEntities()
+            : base("name=EmpleadosEntities")
         {
         }
     
@@ -52,15 +52,6 @@ namespace Empleados
                 new ObjectParameter("Fecha", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_PagoSalario", idEmpleadoParameter, montoParameter, fechaParameter);
-        }
-    
-        public virtual int borrarEmpleado(Nullable<int> idEmpleado)
-        {
-            var idEmpleadoParameter = idEmpleado.HasValue ?
-                new ObjectParameter("IdEmpleado", idEmpleado) :
-                new ObjectParameter("IdEmpleado", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("borrarEmpleado", idEmpleadoParameter);
         }
     }
 }

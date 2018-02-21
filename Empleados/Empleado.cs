@@ -26,7 +26,7 @@ namespace Empleados
         public int IdEmpleado { get; set; }
         public string PuestoTrabajo { get; set; }
         public Nullable<System.DateTime> FechaContratacion { get; set; }
-        public Nullable<int> Salario { get; set; }
+        public Nullable<decimal> Salario { get; set; }
     
         public virtual Persona Persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

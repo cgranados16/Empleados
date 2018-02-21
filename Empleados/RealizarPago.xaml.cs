@@ -21,7 +21,7 @@ namespace Empleados
     /// </summary>
     public partial class RealizarPago : Window
     {
-        EmpleadosEntity db = new EmpleadosEntity();
+        EmpleadosEntities db = new EmpleadosEntities();
         public int EmpleadoID { get; set; }
 
         public RealizarPago()
@@ -32,7 +32,6 @@ namespace Empleados
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Debug.Print(montoTextBox.Text.ToString());
             int result = db.sp_PagoSalario(EmpleadoID, Convert.ToDecimal(montoTextBox.Text.ToString()), fechaDatePicker.SelectedDate);
             if (result == 1)
             {
@@ -41,21 +40,10 @@ namespace Empleados
             Close();
         }
 
-
-        private static bool IsTextAllowed(string text)
-        {
-            Regex regex = new Regex("[^0-9.-]+");
-            return !regex.IsMatch(text);
-        }
-
         private void PreviewTextInputHandler(Object sender, TextCompositionEventArgs e)
         {
-            e.Handled = !IsTextAllowed(e.Text);
-        }
-
-        private void montoTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            Regex regex = new Regex("[^0-9.-]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

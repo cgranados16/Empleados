@@ -15,7 +15,7 @@ namespace Empleados
     public partial class PagosRealizados
     {
         public int IdEmpleado { get; set; }
-        public int Monto { get; set; }
+        public decimal Monto { get; set; }
         public System.DateTime Fecha { get; set; }
     
         public virtual Empleado Empleado { get; set; }

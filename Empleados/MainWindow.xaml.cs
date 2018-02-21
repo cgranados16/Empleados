@@ -9,7 +9,7 @@ namespace Empleados
     /// </summary>
     public partial class MainWindow : Window
     {
-        EmpleadosEntity db = new EmpleadosEntity();
+        EmpleadosEntities db = new EmpleadosEntities();
 
         public MainWindow()
         {
@@ -38,7 +38,7 @@ namespace Empleados
                     if (result == MessageBoxResult.Yes)
                     {
 
-                        db.borrarEmpleado(empleado.Cédula);
+                        //db.borrarEmpleado(empleado.Cédula);
                     }
 
                 }

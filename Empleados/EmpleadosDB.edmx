@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EmpleadosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EmpleadosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Correos">
           <Key>
             <PropertyRef Name="IdPersona" />
@@ -20,7 +20,7 @@
           <Property Name="IdEmpleado" Type="int" Nullable="false" />
           <Property Name="PuestoTrabajo" Type="varchar" MaxLength="255" />
           <Property Name="FechaContratacion" Type="date" />
-          <Property Name="Salario" Type="int" />
+          <Property Name="Salario" Type="money" />
         </EntityType>
         <EntityType Name="Familiares">
           <Key>
@@ -65,14 +65,14 @@
             <PropertyRef Name="IdPersona" />
           </Key>
           <Property Name="IdPersona" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" />
           <Property Name="Apellido1" Type="varchar" MaxLength="255" />
           <Property Name="Apellido2" Type="varchar" MaxLength="255" />
-          <Property Name="Direccion" Type="varchar" MaxLength="255" />
-          <Property Name="FechaNacimiento" Type="varchar" MaxLength="255" />
+          <Property Name="FechaNacimiento" Type="date" />
           <Property Name="Genero" Type="varchar" MaxLength="255" />
           <Property Name="Nacionalidad" Type="varchar" MaxLength="255" />
           <Property Name="EstadoCivil" Type="varchar" MaxLength="255" />
-          <Property Name="Nombre" Type="varchar" MaxLength="255" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Telefonos">
           <Key>
@@ -98,7 +98,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
           <Property Name="Nacionalidad" Type="varchar" MaxLength="255" />
           <Property Name="Estado Civil" Type="varchar" MaxLength="255" />
         </EntityType>
-        <Association Name="FK__Correos__IdPerso__5AEE82B9">
+        <Association Name="FK__Correos__IdPerso__66603565">
           <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
           <End Role="Correos" Type="Self.Correos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -110,7 +110,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Empleado__IdEmpl__5DCAEF64">
+        <Association Name="FK__Empleado__IdEmpl__693CA210">
           <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -122,7 +122,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Familiare__IdEmp__693CA210">
+        <Association Name="FK__Familiare__IdEmp__74AE54BC">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="Familiares" Type="Self.Familiares" Multiplicity="*" />
           <ReferentialConstraint>
@@ -134,7 +134,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Familiare__IdFam__6A30C649">
+        <Association Name="FK__Familiare__IdFam__75A278F5">
           <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
           <End Role="Familiares" Type="Self.Familiares" Multiplicity="*" />
           <ReferentialConstraint>
@@ -146,7 +146,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Historial__IdEmp__60A75C0F">
+        <Association Name="FK__Historial__IdEmp__6C190EBB">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="HistorialVacaciones" Type="Self.HistorialVacaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -158,7 +158,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PagosReal__IdEmp__70DDC3D8">
+        <Association Name="FK__PagosReal__IdEmp__6EF57B66">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="PagosRealizados" Type="Self.PagosRealizados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -170,7 +170,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Permisos__IdEmpl__66603565">
+        <Association Name="FK__Permisos__IdEmpl__71D1E811">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="Permisos" Type="Self.Permisos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -182,7 +182,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Telefonos__IdPer__5812160E">
+        <Association Name="FK__Telefonos__IdPer__6383C8BA">
           <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
           <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -194,9 +194,6 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="borrarEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdEmpleado" Type="int" Mode="In" />
-        </Function>
         <Function Name="sp_PagoSalario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdEmpleado" Type="int" Mode="In" />
           <Parameter Name="Monto" Type="money" Mode="In" />
@@ -224,40 +221,41 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
     [View_Empleado].[Estado Civil] AS [Estado Civil]
     FROM [dbo].[View_Empleado] AS [View_Empleado]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Correos__IdPerso__5AEE82B9" Association="Self.FK__Correos__IdPerso__5AEE82B9">
+          <AssociationSet Name="FK__Correos__IdPerso__66603565" Association="Self.FK__Correos__IdPerso__66603565">
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Correos" EntitySet="Correos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Empleado__IdEmpl__5DCAEF64" Association="Self.FK__Empleado__IdEmpl__5DCAEF64">
+          <AssociationSet Name="FK__Empleado__IdEmpl__693CA210" Association="Self.FK__Empleado__IdEmpl__693CA210">
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="FK__Familiare__IdEmp__693CA210" Association="Self.FK__Familiare__IdEmp__693CA210">
+          <AssociationSet Name="FK__Familiare__IdEmp__74AE54BC" Association="Self.FK__Familiare__IdEmp__74AE54BC">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Familiares" EntitySet="Familiares" />
           </AssociationSet>
-          <AssociationSet Name="FK__Familiare__IdFam__6A30C649" Association="Self.FK__Familiare__IdFam__6A30C649">
+          <AssociationSet Name="FK__Familiare__IdFam__75A278F5" Association="Self.FK__Familiare__IdFam__75A278F5">
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Familiares" EntitySet="Familiares" />
           </AssociationSet>
-          <AssociationSet Name="FK__Historial__IdEmp__60A75C0F" Association="Self.FK__Historial__IdEmp__60A75C0F">
+          <AssociationSet Name="FK__Historial__IdEmp__6C190EBB" Association="Self.FK__Historial__IdEmp__6C190EBB">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="HistorialVacaciones" EntitySet="HistorialVacaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__PagosReal__IdEmp__70DDC3D8" Association="Self.FK__PagosReal__IdEmp__70DDC3D8">
+          <AssociationSet Name="FK__PagosReal__IdEmp__6EF57B66" Association="Self.FK__PagosReal__IdEmp__6EF57B66">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="PagosRealizados" EntitySet="PagosRealizados" />
           </AssociationSet>
-          <AssociationSet Name="FK__Permisos__IdEmpl__66603565" Association="Self.FK__Permisos__IdEmpl__66603565">
+          <AssociationSet Name="FK__Permisos__IdEmpl__71D1E811" Association="Self.FK__Permisos__IdEmpl__71D1E811">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Permisos" EntitySet="Permisos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Telefonos__IdPer__5812160E" Association="Self.FK__Telefonos__IdPer__5812160E">
+          <AssociationSet Name="FK__Telefonos__IdPer__6383C8BA" Association="Self.FK__Telefonos__IdPer__6383C8BA">
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EmpleadosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -268,7 +266,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
           </Key>
           <Property Name="IdPersona" Type="Int32" Nullable="false" />
           <Property Name="Correo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Persona" Relationship="Self.FK__Correos__IdPerso__5AEE82B9" FromRole="Correos" ToRole="Persona" />
+          <NavigationProperty Name="Persona" Relationship="Self.FK__Correos__IdPerso__66603565" FromRole="Correos" ToRole="Persona" />
         </EntityType>
         <EntityType Name="Empleado">
           <Key>
@@ -277,12 +275,12 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
           <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
           <Property Name="PuestoTrabajo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="FechaContratacion" Type="DateTime" Precision="0" />
-          <Property Name="Salario" Type="Int32" />
-          <NavigationProperty Name="Persona" Relationship="Self.FK__Empleado__IdEmpl__5DCAEF64" FromRole="Empleado" ToRole="Persona" />
-          <NavigationProperty Name="Familiares" Relationship="Self.FK__Familiare__IdEmp__693CA210" FromRole="Empleado" ToRole="Familiares" />
-          <NavigationProperty Name="HistorialVacaciones" Relationship="Self.FK__Historial__IdEmp__60A75C0F" FromRole="Empleado" ToRole="HistorialVacaciones" />
-          <NavigationProperty Name="PagosRealizados" Relationship="Self.FK__PagosReal__IdEmp__6383C8BA" FromRole="Empleado" ToRole="PagosRealizados" />
-          <NavigationProperty Name="Permisos" Relationship="Self.FK__Permisos__IdEmpl__66603565" FromRole="Empleado" ToRole="Permisos" />
+          <Property Name="Salario" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Persona" Relationship="Self.FK__Empleado__IdEmpl__693CA210" FromRole="Empleado" ToRole="Persona" />
+          <NavigationProperty Name="Familiares" Relationship="Self.FK__Familiare__IdEmp__74AE54BC" FromRole="Empleado" ToRole="Familiares" />
+          <NavigationProperty Name="HistorialVacaciones" Relationship="Self.FK__Historial__IdEmp__6C190EBB" FromRole="Empleado" ToRole="HistorialVacaciones" />
+          <NavigationProperty Name="PagosRealizados" Relationship="Self.FK__PagosReal__IdEmp__6EF57B66" FromRole="Empleado" ToRole="PagosRealizados" />
+          <NavigationProperty Name="Permisos" Relationship="Self.FK__Permisos__IdEmpl__71D1E811" FromRole="Empleado" ToRole="Permisos" />
         </EntityType>
         <EntityType Name="Familiares">
           <Key>
@@ -293,8 +291,8 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
           <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
           <Property Name="IdFamiliar" Type="Int32" Nullable="false" />
           <Property Name="Relacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK__Familiare__IdEmp__693CA210" FromRole="Familiares" ToRole="Empleado" />
-          <NavigationProperty Name="Persona" Relationship="Self.FK__Familiare__IdFam__6A30C649" FromRole="Familiares" ToRole="Persona" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Familiare__IdEmp__74AE54BC" FromRole="Familiares" ToRole="Empleado" />
+          <NavigationProperty Name="Persona" Relationship="Self.FK__Familiare__IdFam__75A278F5" FromRole="Familiares" ToRole="Persona" />
         </EntityType>
         <EntityType Name="HistorialVacaciones">
           <Key>
@@ -305,7 +303,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
           <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
           <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FechaFinal" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK__Historial__IdEmp__60A75C0F" FromRole="HistorialVacaciones" ToRole="Empleado" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Historial__IdEmp__6C190EBB" FromRole="HistorialVacaciones" ToRole="Empleado" />
         </EntityType>
         <EntityType Name="PagosRealizados">
           <Key>
@@ -314,9 +312,9 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             <PropertyRef Name="Fecha" />
           </Key>
           <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
-          <Property Name="Monto" Type="Int32" Nullable="false" />
+          <Property Name="Monto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK__PagosReal__IdEmp__6383C8BA" FromRole="PagosRealizados" ToRole="Empleado" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__PagosReal__IdEmp__6EF57B66" FromRole="PagosRealizados" ToRole="Empleado" />
         </EntityType>
         <EntityType Name="Permisos">
           <Key>
@@ -325,25 +323,25 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
           </Key>
           <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
           <Property Name="Permiso" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK__Permisos__IdEmpl__66603565" FromRole="Permisos" ToRole="Empleado" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Permisos__IdEmpl__71D1E811" FromRole="Permisos" ToRole="Empleado" />
         </EntityType>
         <EntityType Name="Persona">
           <Key>
             <PropertyRef Name="IdPersona" />
           </Key>
           <Property Name="IdPersona" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Apellido1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Apellido2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="FechaNacimiento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
           <Property Name="Genero" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Nacionalidad" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="EstadoCivil" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Correos" Relationship="Self.FK__Correos__IdPerso__5AEE82B9" FromRole="Persona" ToRole="Correos" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__IdEmpl__5DCAEF64" FromRole="Persona" ToRole="Empleado" />
-          <NavigationProperty Name="Familiares" Relationship="Self.FK__Familiare__IdFam__6A30C649" FromRole="Persona" ToRole="Familiares" />
-          <NavigationProperty Name="Telefonos" Relationship="Self.FK__Telefonos__IdPer__5812160E" FromRole="Persona" ToRole="Telefonos" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Correos" Relationship="Self.FK__Correos__IdPerso__66603565" FromRole="Persona" ToRole="Correos" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__IdEmpl__693CA210" FromRole="Persona" ToRole="Empleado" />
+          <NavigationProperty Name="Familiares" Relationship="Self.FK__Familiare__IdFam__75A278F5" FromRole="Persona" ToRole="Familiares" />
+          <NavigationProperty Name="Telefonos" Relationship="Self.FK__Telefonos__IdPer__6383C8BA" FromRole="Persona" ToRole="Telefonos" />
         </EntityType>
         <EntityType Name="Telefonos">
           <Key>
@@ -352,7 +350,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
           </Key>
           <Property Name="IdPersona" Type="Int32" Nullable="false" />
           <Property Name="Telefono" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <NavigationProperty Name="Persona" Relationship="Self.FK__Telefonos__IdPer__5812160E" FromRole="Telefonos" ToRole="Persona" />
+          <NavigationProperty Name="Persona" Relationship="Self.FK__Telefonos__IdPer__6383C8BA" FromRole="Telefonos" ToRole="Persona" />
         </EntityType>
         <EntityType Name="View_Empleado">
           <Key>
@@ -368,7 +366,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
           <Property Name="Nacionalidad" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Estado_Civil" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__Correos__IdPerso__5AEE82B9">
+        <Association Name="FK__Correos__IdPerso__66603565">
           <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
           <End Role="Correos" Type="Self.Correos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -380,7 +378,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Empleado__IdEmpl__5DCAEF64">
+        <Association Name="FK__Empleado__IdEmpl__693CA210">
           <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -392,7 +390,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Familiare__IdEmp__693CA210">
+        <Association Name="FK__Familiare__IdEmp__74AE54BC">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="Familiares" Type="Self.Familiares" Multiplicity="*" />
           <ReferentialConstraint>
@@ -404,7 +402,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Historial__IdEmp__60A75C0F">
+        <Association Name="FK__Historial__IdEmp__6C190EBB">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="HistorialVacaciones" Type="Self.HistorialVacaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -416,7 +414,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PagosReal__IdEmp__6383C8BA">
+        <Association Name="FK__PagosReal__IdEmp__6EF57B66">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="PagosRealizados" Type="Self.PagosRealizados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -428,7 +426,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Permisos__IdEmpl__66603565">
+        <Association Name="FK__Permisos__IdEmpl__71D1E811">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="Permisos" Type="Self.Permisos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -440,7 +438,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Familiare__IdFam__6A30C649">
+        <Association Name="FK__Familiare__IdFam__75A278F5">
           <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
           <End Role="Familiares" Type="Self.Familiares" Multiplicity="*" />
           <ReferentialConstraint>
@@ -452,7 +450,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Telefonos__IdPer__5812160E">
+        <Association Name="FK__Telefonos__IdPer__6383C8BA">
           <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
           <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -464,7 +462,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EmpleadosEntity" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EmpleadosEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Correos" EntityType="Self.Correos" />
           <EntitySet Name="Empleado" EntityType="Self.Empleado" />
           <EntitySet Name="Familiares" EntityType="Self.Familiares" />
@@ -474,35 +472,35 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
           <EntitySet Name="Persona" EntityType="Self.Persona" />
           <EntitySet Name="Telefonos" EntityType="Self.Telefonos" />
           <EntitySet Name="View_Empleado" EntityType="Self.View_Empleado" />
-          <AssociationSet Name="FK__Correos__IdPerso__5AEE82B9" Association="Self.FK__Correos__IdPerso__5AEE82B9">
+          <AssociationSet Name="FK__Correos__IdPerso__66603565" Association="Self.FK__Correos__IdPerso__66603565">
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Correos" EntitySet="Correos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Empleado__IdEmpl__5DCAEF64" Association="Self.FK__Empleado__IdEmpl__5DCAEF64">
+          <AssociationSet Name="FK__Empleado__IdEmpl__693CA210" Association="Self.FK__Empleado__IdEmpl__693CA210">
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="FK__Familiare__IdEmp__693CA210" Association="Self.FK__Familiare__IdEmp__693CA210">
+          <AssociationSet Name="FK__Familiare__IdEmp__74AE54BC" Association="Self.FK__Familiare__IdEmp__74AE54BC">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Familiares" EntitySet="Familiares" />
           </AssociationSet>
-          <AssociationSet Name="FK__Historial__IdEmp__60A75C0F" Association="Self.FK__Historial__IdEmp__60A75C0F">
+          <AssociationSet Name="FK__Historial__IdEmp__6C190EBB" Association="Self.FK__Historial__IdEmp__6C190EBB">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="HistorialVacaciones" EntitySet="HistorialVacaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__PagosReal__IdEmp__6383C8BA" Association="Self.FK__PagosReal__IdEmp__6383C8BA">
+          <AssociationSet Name="FK__PagosReal__IdEmp__6EF57B66" Association="Self.FK__PagosReal__IdEmp__6EF57B66">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="PagosRealizados" EntitySet="PagosRealizados" />
           </AssociationSet>
-          <AssociationSet Name="FK__Permisos__IdEmpl__66603565" Association="Self.FK__Permisos__IdEmpl__66603565">
+          <AssociationSet Name="FK__Permisos__IdEmpl__71D1E811" Association="Self.FK__Permisos__IdEmpl__71D1E811">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Permisos" EntitySet="Permisos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Familiare__IdFam__6A30C649" Association="Self.FK__Familiare__IdFam__6A30C649">
+          <AssociationSet Name="FK__Familiare__IdFam__75A278F5" Association="Self.FK__Familiare__IdFam__75A278F5">
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Familiares" EntitySet="Familiares" />
           </AssociationSet>
-          <AssociationSet Name="FK__Telefonos__IdPer__5812160E" Association="Self.FK__Telefonos__IdPer__5812160E">
+          <AssociationSet Name="FK__Telefonos__IdPer__6383C8BA" Association="Self.FK__Telefonos__IdPer__6383C8BA">
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
@@ -511,16 +509,13 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             <Parameter Name="Monto" Mode="In" Type="Decimal" />
             <Parameter Name="Fecha" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="borrarEmpleado">
-            <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
-          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EmpleadosModelStoreContainer" CdmEntityContainer="EmpleadosEntity">
+        <EntityContainerMapping StorageEntityContainer="EmpleadosModelStoreContainer" CdmEntityContainer="EmpleadosEntities">
           <EntitySetMapping Name="Correos">
             <EntityTypeMapping TypeName="EmpleadosModel.Correos">
               <MappingFragment StoreEntitySet="Correos">
@@ -578,14 +573,14 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             <EntityTypeMapping TypeName="EmpleadosModel.Persona">
               <MappingFragment StoreEntitySet="Persona">
                 <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
                 <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
                 <ScalarProperty Name="Genero" ColumnName="Genero" />
                 <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
                 <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -613,7 +608,6 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_PagoSalario" FunctionName="EmpleadosModel.Store.sp_PagoSalario" />
-          <FunctionImportMapping FunctionImportName="borrarEmpleado" FunctionName="EmpleadosModel.Store.borrarEmpleado" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
