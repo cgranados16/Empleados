@@ -15,25 +15,27 @@ using System.Windows.Shapes;
 namespace Empleados
 {
     /// <summary>
-    /// Interaction logic for EmpleadoDetalle.xaml
+    /// Interaction logic for LogIn.xaml
     /// </summary>
-    public partial class EmpleadoDetalle : Window
+    public partial class LogIn : Window
     {
-        public int EmpleadoID { get; set; }
-
-        public EmpleadoDetalle(){
+        public LogIn()
+        {
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e) {
-            empleadoTextBox.Text = EmpleadoID.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            RealizarPago frm1 = new RealizarPago();
-            frm1.EmpleadoID = EmpleadoID;
-            frm1.Show();
+            if (usernameTextBox.Text.Equals("Admin") && passwordTextBox.Password.Equals("Admin"))
+            {
+                MainWindow frm1 = new MainWindow();
+                frm1.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos.");
+            }
         }
     }
 }

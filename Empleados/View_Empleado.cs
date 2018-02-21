@@ -23,6 +23,5 @@ namespace Empleados
         public string Género { get; set; }
         public string Nacionalidad { get; set; }
         public string Estado_Civil { get; set; }
-
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EmpleadosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EmpleadosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Correos">
           <Key>
             <PropertyRef Name="IdPersona" />
@@ -49,7 +49,7 @@
             <PropertyRef Name="Fecha" />
           </Key>
           <Property Name="IdEmpleado" Type="int" Nullable="false" />
-          <Property Name="Monto" Type="int" Nullable="false" />
+          <Property Name="Monto" Type="money" Nullable="false" />
           <Property Name="Fecha" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Permisos">
@@ -158,7 +158,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PagosReal__IdEmp__6383C8BA">
+        <Association Name="FK__PagosReal__IdEmp__70DDC3D8">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="PagosRealizados" Type="Self.PagosRealizados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -194,6 +194,14 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="borrarEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpleado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_PagoSalario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpleado" Type="int" Mode="In" />
+          <Parameter Name="Monto" Type="money" Mode="In" />
+          <Parameter Name="Fecha" Type="datetime" Mode="In" />
+        </Function>
         <EntityContainer Name="EmpleadosModelStoreContainer">
           <EntitySet Name="Correos" EntityType="Self.Correos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
@@ -236,7 +244,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="HistorialVacaciones" EntitySet="HistorialVacaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__PagosReal__IdEmp__6383C8BA" Association="Self.FK__PagosReal__IdEmp__6383C8BA">
+          <AssociationSet Name="FK__PagosReal__IdEmp__70DDC3D8" Association="Self.FK__PagosReal__IdEmp__70DDC3D8">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="PagosRealizados" EntitySet="PagosRealizados" />
           </AssociationSet>
@@ -249,8 +257,7 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EmpleadosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -499,6 +506,14 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
+          <FunctionImport Name="sp_PagoSalario">
+            <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+            <Parameter Name="Monto" Mode="In" Type="Decimal" />
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="borrarEmpleado">
+            <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -597,6 +612,8 @@ warning 6002: The table/view 'Tarea3.dbo.View_Empleado' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_PagoSalario" FunctionName="EmpleadosModel.Store.sp_PagoSalario" />
+          <FunctionImportMapping FunctionImportName="borrarEmpleado" FunctionName="EmpleadosModel.Store.borrarEmpleado" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

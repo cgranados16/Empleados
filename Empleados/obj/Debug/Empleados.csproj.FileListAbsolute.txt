@@ -41,3 +41,7 @@ D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\Empleados.pdb
 D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\EmpleadoDetalle.g.cs
 D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\EmpleadoDetalle.baml
 D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\Empleados_Content.g.cs
+D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\RealizarPago.baml
+D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\RealizarPago.g.cs
+D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\LogIn.baml
+D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\LogIn.g.cs

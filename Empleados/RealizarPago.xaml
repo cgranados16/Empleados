@@ -1,0 +1,35 @@
+﻿<Window x:Class="Empleados.RealizarPago"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="RealizarPago" Height="300" Width="300">
+    <Grid>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="44,104,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="50.661"/>
+                <ColumnDefinition Width="34.339"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Monto:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="5"/>
+            <TextBox x:Name="montoTextBox" PreviewTextInput="PreviewTextInputHandler" Grid.Column="6" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="1" VerticalAlignment="Center" Width="120" TextChanged="montoTextBox_TextChanged"/>
+            <Label Content="Fecha:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="2" VerticalAlignment="Center" Grid.ColumnSpan="5"/>
+            <DatePicker x:Name="fechaDatePicker" SelectedDate="{x:Static sys:DateTime.Now}" Grid.Column="6" HorizontalAlignment="Left" Margin="3,4,0,4" Grid.Row="2" VerticalAlignment="Center" SelectedDateFormat="Short"/>
+        </Grid>
+        <Button Name="AceptarButton" Content="Aceptar" HorizontalAlignment="Left" Margin="108,214,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label Content="¿Realizar Pago?" HorizontalAlignment="Left" Margin="80,41,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+
+    </Grid>
+</Window>

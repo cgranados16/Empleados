@@ -93,6 +93,9 @@
     <Compile Include="HistorialVacaciones.cs">
       <DependentUpon>EmpleadosDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="LogIn.xaml.cs">
+      <DependentUpon>LogIn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PagosRealizados.cs">
       <DependentUpon>EmpleadosDB.tt</DependentUpon>
     </Compile>
@@ -101,6 +104,9 @@
     </Compile>
     <Compile Include="Persona.cs">
       <DependentUpon>EmpleadosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RealizarPago.xaml.cs">
+      <DependentUpon>RealizarPago.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tarea3DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -117,6 +123,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LogIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -129,6 +139,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RealizarPago.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -12,6 +12,8 @@ namespace Empleados
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class EmpleadosEntity : DbContext
     {
@@ -34,5 +36,31 @@ namespace Empleados
         public virtual DbSet<Persona> Persona { get; set; }
         public virtual DbSet<Telefonos> Telefonos { get; set; }
         public virtual DbSet<View_Empleado> View_Empleado { get; set; }
+    
+        public virtual int sp_PagoSalario(Nullable<int> idEmpleado, Nullable<decimal> monto, Nullable<System.DateTime> fecha)
+        {
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("IdEmpleado", idEmpleado) :
+                new ObjectParameter("IdEmpleado", typeof(int));
+    
+            var montoParameter = monto.HasValue ?
+                new ObjectParameter("Monto", monto) :
+                new ObjectParameter("Monto", typeof(decimal));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_PagoSalario", idEmpleadoParameter, montoParameter, fechaParameter);
+        }
+    
+        public virtual int borrarEmpleado(Nullable<int> idEmpleado)
+        {
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("IdEmpleado", idEmpleado) :
+                new ObjectParameter("IdEmpleado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("borrarEmpleado", idEmpleadoParameter);
+        }
     }
 }
