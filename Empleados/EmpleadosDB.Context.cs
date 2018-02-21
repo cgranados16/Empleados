@@ -36,6 +36,7 @@ namespace Empleados
         public virtual DbSet<Persona> Persona { get; set; }
         public virtual DbSet<Telefonos> Telefonos { get; set; }
         public virtual DbSet<View_Empleado> View_Empleado { get; set; }
+        public virtual DbSet<view_Pagos> view_Pagos { get; set; }
     
         public virtual int sp_PagoSalario(Nullable<int> idEmpleado, Nullable<decimal> monto, Nullable<System.DateTime> fecha)
         {

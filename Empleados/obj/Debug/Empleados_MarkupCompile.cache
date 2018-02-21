@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Carlos\Documents\GitHub\Empleados\Empleados\App.xaml
-41750585938
+6-679858230
 2-652812678
-211256753936
+24-1667198799
 18469235927
-EmpleadoDetalle.xaml;LogIn.xaml;MainWindow.xaml;RealizarPago.xaml;
+EmpleadoDetalle.xaml;LogIn.xaml;MainWindow.xaml;Pages\VentanaPagos.xaml;RealizarPago.xaml;Pages\VentanaEmpleados.xaml;
 
 False
 

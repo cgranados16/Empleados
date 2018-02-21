@@ -45,3 +45,7 @@ D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\RealizarPago.baml
 D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\RealizarPago.g.cs
 D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\LogIn.baml
 D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\LogIn.g.cs
+D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\Pages\VentanaEmpleados.baml
+D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\Pages\VentanaPagos.g.cs
+D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\Pages\VentanaEmpleados.g.cs
+D:\Carlos\Documents\GitHub\Empleados\Empleados\obj\Debug\Pages\VentanaPagos.baml

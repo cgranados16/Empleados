@@ -1,0 +1,15 @@
+﻿<Page x:Class="Empleados.Pages.VentanaPagos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Title="VentanaPagos" Loaded="Window_Loaded"
+      Height="720" Width="1079.5">
+
+    <Grid Width="1079.5">
+        <DataGrid x:Name="dataGrid1" Margin="34,93,34,112" IsReadOnly="True" RowHeight="50" IsTextSearchEnabled="True"/>
+        <Label Content="Pagos Realizados" HorizontalAlignment="Left" Margin="24,24,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.675,0.298"/>
+        <Button x:Name="Empleados_Button" Content="Ver Empleados" HorizontalAlignment="Left" Margin="34,611,0,0" VerticalAlignment="Top" Width="224" Height="53" Click="Empleados_Button_Click" FontSize="20"/>
+    </Grid>
+</Page>

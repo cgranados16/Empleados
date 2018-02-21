@@ -96,6 +96,9 @@
     <Compile Include="LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\VentanaPagos.xaml.cs">
+      <DependentUpon>VentanaPagos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PagosRealizados.cs">
       <DependentUpon>EmpleadosDB.tt</DependentUpon>
     </Compile>
@@ -116,7 +119,13 @@
     <Compile Include="Telefonos.cs">
       <DependentUpon>EmpleadosDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\VentanaEmpleados.xaml.cs">
+      <DependentUpon>VentanaEmpleados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View_Empleado.cs">
+      <DependentUpon>EmpleadosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="view_Pagos.cs">
       <DependentUpon>EmpleadosDB.tt</DependentUpon>
     </Compile>
     <Page Include="EmpleadoDetalle.xaml">
@@ -139,7 +148,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\VentanaPagos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RealizarPago.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\VentanaEmpleados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

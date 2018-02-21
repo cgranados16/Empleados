@@ -22,6 +22,7 @@
         <AssociationConnector Association="EmpleadosModel.FK__Permisos__IdEmpl__71D1E811" ManuallyRouted="false" />
         <AssociationConnector Association="EmpleadosModel.FK__Familiare__IdFam__75A278F5" ManuallyRouted="false" />
         <AssociationConnector Association="EmpleadosModel.FK__Telefonos__IdPer__6383C8BA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EmpleadosModel.view_Pagos" Width="1.5" PointX="7.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

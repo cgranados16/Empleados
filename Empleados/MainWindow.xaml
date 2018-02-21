@@ -2,11 +2,6 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Sistema Administrador de Empleados" Height="720" Width="1079.5"
-        Loaded="Window_Loaded">
-    <Grid>
-        <Label Content="Empleados" HorizontalAlignment="Left" Margin="24,24,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.675,0.298"/>
-        <DataGrid Name="dataGrid1" Margin="34,93,34,112" IsReadOnly="True" RowHeight="50" IsTextSearchEnabled="True"/>
-        <Button Content="Ver Detalles" HorizontalAlignment="Left" Margin="814,611,0,0" VerticalAlignment="Top" Width="224" Height="53" Click="Button_Click" FontSize="20"/>
-        <Button Name="Eliminar_Empleado" Content="Eliminar Empleado" HorizontalAlignment="Left" Margin="558,611,0,0" VerticalAlignment="Top" Width="224" Height="53" Click="Eliminar_Empleado_Click" FontSize="20"/>
-    </Grid>
+        >
+    <Frame x:Name="FrameWithinGrid" NavigationUIVisibility="Hidden" Margin="0,0,2,-21" Source="/Empleados;component/Pages/VentanaEmpleados.xaml" />
 </Window>
